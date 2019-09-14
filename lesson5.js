@@ -3,20 +3,39 @@
 // reducer for counter
 // handles unknown actions by returning current state
 // handles undefined state by returning default state
-function counter(state, action) {
-  // if undefined, must return initial state of app
-  if (typeof state === 'undefined') {
-    return 0;
-  }
 
-  if (action.type === 'INCREMENT') {
-    return state + 1;
-  } else if (action.type === 'DECREMENT') {
-    return state - 1;
-  } else {
-    return state; // action.type not +/-, return current state
+// more clear es6 version
+// reducer for counter
+// handles unknown actions by returning current state
+// handles undefined state by returning default state
+// default argument in state = 0, so gives state if undefined
+const counter = (state = 0, action) => {  
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state; // action.type not +/-, return current state
   }
 }
+
+// old, less clear way to write reducer
+// function counter(state, action) {
+//   // if undefined, must return initial state of app
+//   if (typeof state === 'undefined') {
+//     return 0;
+//   }
+  
+//   if (action.type === 'INCREMENT') {
+//     return state + 1;
+//   } else if (action.type === 'DECREMENT') {
+//     return state - 1;
+//   } else {
+//     return state; // action.type not +/-, return current state
+//   }
+// }
+
 
 module.exports = counter;
 
