@@ -1,6 +1,14 @@
 // Redux: The single immutable state tree
 
 /*
+3 things about Redux:
+A single immutable state tree
+Describing state changes as actions
+Reducers made up of a pure function 
+that take in actions and prevState and 
+*/
+
+/*
  * We will be explaining the code below
  * in the following lessons. For now,
  * feel free to click around and notice
