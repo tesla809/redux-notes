@@ -17,3 +17,15 @@ test('Counter increments and decrements', () => {
     counter(2, { type: 'DECREMENT' })
   ).toEqual(1);
 });
+
+test('Handles unknown action', () => {
+  expect(
+    counter(1, { type: 'SOMETHING_ELSE' }) 
+  ).toEqual(1);  
+});
+
+test('Handles initial state', () => {
+  expect(
+    counter(undefined, {})
+  ).toEqual(0);
+});
