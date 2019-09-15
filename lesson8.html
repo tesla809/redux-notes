@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Redux: Store Methods: getState(), dispatch(), and subscribe()</title>
+<style>
+  body {
+    font-size: 25px;
+  }
+</style>
+</head>
+<!--
+  Will re-implement DOM manipulations
+  with React instead of Plain old HTML
+  since it is a more scalable approach
+-->
+<body>
+</body>
+<!--
+  This needs to be here so script can read body tag initally
+  the insert the default value.
+
+  If the tag is up top in the head, then JS file 
+  won't know body tag exists and we get an error.
+-->
+<!--Needed to render React to-->
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.0.4/redux.js"></script>
+<script type="text/babel" src="./lesson8.js"></script>
+</html>
+
+<!-- 
+  imported redux file
+  exports a single global variable 
+  called Redux.
+
+  this needs a server to avoid errors 
+  "Access to XMLHttpRequest at 
+  ... from origin 'null' has been blocked by CORS policy: 
+  Cross origin requests are only supported for protocol schemes: 
+  http, data, chrome, chrome-extension, https."
+
+  So yarn add http-server
+
+
+-->
