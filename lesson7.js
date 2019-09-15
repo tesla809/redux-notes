@@ -69,12 +69,6 @@ const render = () => {
 store.subscribe(render);
 render();
 
-
-// when clicked, number will go up
-document.addEventListener('click', () => {
-  store.dispatch({ type: 'INCREMENT' });
-});
-
 /*
 re-created createStore to understand it
 createStore():
