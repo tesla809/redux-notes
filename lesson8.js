@@ -84,7 +84,29 @@ we want to add increment and decrement
 buttons, but we DONT want to hardcode
 redux to the implementation. 
 
-So, we add them as callbacks
+So, we add them as callbacks. 
+
+Counter is a dumb component,
+since it does not contain any business logic.
+It only has presentation logic aka 
+how data with renderable output
+and how callbacks passed thru props
+are bound by event handlers. 
+
+When we render Counter, we tell it 
+that its value should come from Redux
+store. 
+When user presses increment or decrement
+we dispatch an action. 
+
+That action goes into a reducer, 
+and we get a new state,
+which updates the UI since the render method 
+has subscribed to any state changes from the store. 
+
+
+
+
 
 
 imported redux file
