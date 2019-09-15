@@ -4,9 +4,13 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-jest": "^24.9.0",
     "jest": "^24.9.0"
   },
   "dependencies": {
+    "deep-freeze": "^0.0.1",
     "http-server": "^0.11.1"
   }
 }
