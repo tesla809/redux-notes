@@ -1,5 +1,3 @@
-const expectExport = require("expect");
-
 // Redux: Avoiding Array Mutations 
 // with concat(), slice(), and ...spread
 
