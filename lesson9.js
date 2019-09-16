@@ -1,13 +1,6 @@
 // Redux: Avoiding Array Mutations 
 // with concat(), slice(), and ...spread
 
-// imported deepFreeze via lesson9 link tag
-// We could yarn add deep-freeze
-// but keeping it simple
-// yarn: https://yarnpkg.com/en/package/deep-freeze#readme
-// working docs: https://github.com/substack/deep-freeze
-// working docs: https://www.npmjs.com/package/deep-freeze
-
 // We want to add different counters
 // How do we maintain state?
 // naive way, mutating state NOT GOOD

@@ -2,6 +2,11 @@
 // DeepFreeze recursively Object.freeze() objects
 // and functions
 
+// deep-freeze docs
+// yarn: https://yarnpkg.com/en/package/deep-freeze#readme
+// working docs: https://github.com/substack/deep-freeze
+// working docs: https://www.npmjs.com/package/deep-freeze
+
 // Here we learned how to protect ourselves against 
 // mutations using the deep-freeze package
 // in our tests
