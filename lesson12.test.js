@@ -6,7 +6,7 @@
 // a Todo list reducer
 // adding Toggling a Todo complete property tests
 const deepFreeze = require('deep-freeze');
-const { addTodos, toggleTodo } = require('./lesson12.js');
+const { todos } = require('./lesson12.js');
 
 describe('Todo list', () => {
   test('Adds todo', () => {
@@ -32,7 +32,7 @@ describe('Todo list', () => {
 
 
     expect(
-      addTodos(stateBefore, action)  // reducer takes state, action, returns new state
+      todos(stateBefore, action)  // reducer takes state, action, returns new state
     ).toEqual(stateAfter) 
   });
 
@@ -72,7 +72,7 @@ describe('Todo list', () => {
     deepFreeze(stateAfter);
 
     expect(
-      toggleTodo(stateBefore, action)
+      todos(stateBefore, action)
     ).toEqual(stateAfter);
   })
 });
