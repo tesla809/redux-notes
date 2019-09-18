@@ -9,11 +9,6 @@
 // So, we split function of individual todo
 // and updating group todos
 
-// Here we learn the 
-// pattern of reducer composition 
-// where one reducer can be called by 
-// another reducer to update items inside an array.
-
 const todo = (state, action) => {
   switch (action.type) {
     case 'ADD_TODO':
