@@ -1,7 +1,11 @@
 // Redux: Writing a Todo List Reducer 
 // (Toggling a Todo)
 
-// we will write a Todo list reducer
+// we will
+// Learn how to use the reducer composition 
+// pattern to let different reducers 
+// handle different parts of the state tree, 
+// and then combine their results.
 
 // make composible. 
 // We don't want to mix concerns
@@ -51,6 +55,7 @@ const todos = (state = [], action) => {
   }
 };
 
+// handles different part of state tree than todo
 // SHOW_ALL is initial/default state if undefined passed in
 const visibilityFilter = (state = 'SHOW_ALL', action) => {
     switch (action.type) {
