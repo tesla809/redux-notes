@@ -6,7 +6,7 @@
 // a Todo list reducer
 // adding Toggling a Todo complete property tests
 const deepFreeze = require('deep-freeze');
-const { todos } = require('./lesson13.js');
+const { todos } = require('./lesson14.js');
 
 describe('Todo list', () => {
   test('Adds todo', () => {
