@@ -1,24 +1,13 @@
 // Redux: Writing a Todo List Reducer 
 // (Toggling a Todo)
 
-// we will learn how to generate 
-// a simple reducer that calls
-// many reducers to manage parts 
-// of its state by using the combineReducers 
-// utility function.
+// lesson16:
+// We will learn how to 
+// build a reasonable approximation 
+// of the combineReducers() utility in 15 lines.
 
 import * as Redux from 'redux';
 
-// make composible. 
-// We don't want to mix concerns
-// of updating a single todo and multiple todos
-// So, we split function of individual todo
-// and updating group todos
-
-// Here we learn the 
-// pattern of reducer composition 
-// where one reducer can be called by 
-// another reducer to update items inside an array.
 const todo = (state, action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -67,48 +56,31 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
     }
 };
 
-// lesson15:
-// Easy way to combine reducers 
-// similar to below
-// keys === state object fields it will manage
-// so state.x -> keys === x
-// values === reducers
-// so reducer -> value of key
-// ALWAYS NAME REDUCER AFTER THE STATE KEY
-// THAT THEY MANAGE
-// since they are the same, you can omit
-// the values.
-const { combineReducers } = Redux;
+// combineReducers implemented from scratch to understand how it works
 
-// without object literal shorthand notation
-// const todoApp = combineReducers({
-//   todos: todos,  <- one way to do it
-//   visibilityFilter: visibilityFilter
-// });
+// only argument is mapping between state keys and reducers
+const combineReducers = (reducers) => {
+  // return value is another reducer. 
+  // Its a function that returns another function
+  // same signature as a reducer
+  return (state = {}, action) => {
+    return Object.keys(reducers)  // get all keys from reducer
+      .reduce(  // wants single value from each state
+        (nextState, key) => { // by calling each reducer to update state
+          nextState[key] = reducers[key](state[key], action);  
+          return nextState;               
+        },
+        {}  // an empty object as initial nextstate, before all the keys are processed
+      );
+  };
+};
 
-
-// using Redux helper method
-const todoApp = combineReducers({
+const todoApp = combineReducers({  // using Redux helper method
   todos,  // object literal short hand notation 
   visibilityFilter
 });
 
-// naive way to do it
-// const todoApp = (state = {}, action) => {
-//   return {
-//     todo: todos(state.todo, action),
-//     visibilityFilter: visibilityFilter(state.visibilityFilter, action)
-//   }
-// }
-
-// If we create a store with this reducer 
-// and log its state, we will find that 
-// the initial state of it is an empty array of todos
-// each reducer handles the actions independently
 const { createStore } = Redux;
-
-// state will now have multiple reducers in one
-// this pattern helps scale redux development
 const store = createStore(todoApp);
 
 module.exports = { 

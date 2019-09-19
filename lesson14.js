@@ -1,12 +1,12 @@
 // Redux: Writing a Todo List Reducer 
 // (Toggling a Todo)
 
-// we will
-// Learn how to use the reducer composition 
+// we will learn how to use the reducer composition 
 // pattern to let different reducers 
 // handle different parts of the state tree, 
 // and then combine their results.
 
+import * as Redux from 'redux';
 // make composible. 
 // We don't want to mix concerns
 // of updating a single todo and multiple todos
