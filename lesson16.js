@@ -57,7 +57,6 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
 };
 
 // combineReducers implemented from scratch to understand how it works
-
 // only argument is mapping between state keys and reducers
 const combineReducers = (reducers) => {
   // return value is another reducer. 
@@ -70,10 +69,46 @@ const combineReducers = (reducers) => {
           nextState[key] = reducers[key](state[key], action);  
           return nextState;               
         },
-        {}  // an empty object as initial nextstate, before all the keys are processed
-      );
-  };
+        {}  // start w/ empty object as initial nextstate, before all the keys are processed
+      );  // remember reducer takes a start value as second argument
+  };     // this empty object will accumulate and return the entire values of the reducers
 };
+
+// naive way to do it without combineReducers
+// const todoApp = (state = {}, action) => {
+//   return {
+//     todo: todos(state.todo, action),
+//     visibilityFilter: visibilityFilter(state.visibilityFilter, action)
+//   }
+// }
+
+/*
+for implementation of function above, basically, we are iterating 
+over every state.key using its corresponding reducer
+to create a new state.
+Each state.key has a reducer to handle it state.
+We set each key as the reducer 
+with the proper arugments and return it.
+
+We will pass in into the generated reducer
+only a part of the state via the state[key].
+
+We return and accumulate each new state 
+and add it to the empty object that reduce
+takes as the second argument.
+
+The final object is an object of key/value pairs
+where the key is state.key and value is the reducer 
+with the right function signature.
+
+That is passed into another top level function 
+which ultimately becomes our main reducer.
+*/
+
+// side note: knowing functional programming will help you 
+// become more productive and learn how to better use redux
+// functional programming allows functions to take other functions
+// as inputs
 
 const todoApp = combineReducers({  // using Redux helper method
   todos,  // object literal short hand notation 
